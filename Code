@@ -1,0 +1,35 @@
+var score = 0;
+var points = 0;
+var result = 0;
+onEvent("calculatescorebutton", "click", function( ) {
+  score = getNumber("scoreinput");
+  setText("LetterGradeResult", score);
+  points = getNumber("Points");
+  result = score / points;
+  setProperty("resulttext", "text", "Result: " + result);
+  if (result >= 0.90) {
+    setText("LetterGradeResult", "A");
+    playSound("SHEESH-SOUND-EFFECT-(mp3cut.net).mp3", false);
+  } else if ((result >= 0.80)) {
+    setText("LetterGradeResult", "B");
+    playSound("Oh-Yeah-sound-effect-(mp3cut.net).mp3", false);
+  } else if ((result >= 0.70)) {
+    setText("LetterGradeResult", "C");
+    playSound("Meh-Sound-Effect-_(No-Copyright)-_Bd-Sound-Effects--HD--(mp3cut.net).mp3", false);
+  } else if ((result >= 0.60)) {
+    setText("LetterGradeResult", "D");
+    playSound("Spongebob-disappointed-sound-(Steel-Sting)-(mp3cut.net).mp3", false);
+  } else {
+    setText ("LetterGradeResult", "F");
+    playSound("Disappointed-Sound---Sound-Effect-(HD)-(mp3cut.net).mp3", false);
+  }
+  
+});
+onEvent("resetbutton", "click", function( ) {
+  playSound("sound://category_achievements/vibrant_game_hype_game_positive_ring_bling.mp3", false);
+  setProperty("Points", "text", "\n");
+  setProperty("scoreinput", "text", "\n");
+  setProperty("LetterGradeResult", "text", "\n");
+  setProperty("resulttext", "text", "Result: " + "\n");
+});
+ 
